@@ -1,0 +1,16 @@
+updir:x
+pixel-scale:on
+
+file:echo-font-4
+ssfont:7:6
+animsplit:goat-font-41:0,0-25
+animsplit:goat-font-42:1,0-25
+
+file:stevie-font-62
+ssfont:9:6
+animsplit:goat-font-62-1:0,0-25
+animsplit:goat-font-62-2:1,0-25
+animsplit:goat-font-62-3:2,0-25
+
+
+

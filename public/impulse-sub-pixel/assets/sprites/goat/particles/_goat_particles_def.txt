@@ -1,0 +1,14 @@
+updir:x
+prefix:goat-
+
+file:explosion
+anim:particle-explosion:1-6:100
+
+file:hit
+anim:particle-hit:1-5:100
+
+file:particles-16-16-4-256
+ss:24:24
+animss:particle-circle:1,1-2
+animss:particle-square:2,1-2
+animss:particle-rounded-square:2,3-4

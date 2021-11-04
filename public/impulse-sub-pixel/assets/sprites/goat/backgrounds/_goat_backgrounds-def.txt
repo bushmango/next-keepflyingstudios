@@ -1,0 +1,9 @@
+file:Blue3
+large-sprite-x:goat-background-blue3  
+
+updir:x
+file:goat-background-menu-main
+large-sprite-x:goat-background-menu-main  
+
+file:goat-background-menu-main-battle
+large-sprite-x:goat-background-menu-main-battle  

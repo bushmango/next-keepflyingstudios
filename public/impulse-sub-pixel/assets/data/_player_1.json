@@ -1,0 +1,198 @@
+{
+  "parts": {
+    "parts": [
+      {
+        "i": 6,
+        "j": 5,
+        "type": "engine",
+        "connections": {
+          "n": false,
+          "e": true,
+          "s": true,
+          "w": false
+        },
+        "variant": 0
+      },
+      {
+        "i": 7,
+        "j": 5,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 8,
+        "j": 5,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 9,
+        "j": 5,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 10,
+        "j": 5,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 7,
+        "j": 6,
+        "type": "core",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 8,
+        "j": 6,
+        "type": "autocannon",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 10,
+        "j": 6,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 7,
+        "j": 7,
+        "type": "autocannon",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 8,
+        "j": 7,
+        "type": "autocannon",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 10,
+        "j": 7,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 6,
+        "j": 8,
+        "type": "engine",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": false,
+          "w": false
+        },
+        "variant": 0
+      },
+      {
+        "i": 7,
+        "j": 8,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 8,
+        "j": 8,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 9,
+        "j": 8,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 10,
+        "j": 8,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      }
+    ]
+  }
+}

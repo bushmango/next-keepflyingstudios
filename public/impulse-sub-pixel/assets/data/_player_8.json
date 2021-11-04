@@ -1,0 +1,138 @@
+{
+  "parts": {
+    "parts": [
+      {
+        "i": 3,
+        "j": 5,
+        "type": "engine",
+        "connections": {
+          "n": false,
+          "e": true,
+          "s": true,
+          "w": false
+        },
+        "variant": 0
+      },
+      {
+        "i": 4,
+        "j": 5,
+        "type": "anti-missile",
+        "connections": {
+          "n": false,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 5,
+        "j": 5,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 4,
+        "j": 6,
+        "type": "engine",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": false
+        },
+        "variant": 0
+      },
+      {
+        "i": 5,
+        "j": 6,
+        "type": "munitions",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 6,
+        "j": 6,
+        "type": "crew-quarters",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 7,
+        "j": 6,
+        "type": "core",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 5,
+        "j": 7,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 6,
+        "j": 7,
+        "type": "autocannon",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 7,
+        "j": 7,
+        "type": "laser-cannon",
+        "connections": {
+          "n": true,
+          "e": false,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 5,
+        "j": 8,
+        "type": "laser-cannon",
+        "connections": {
+          "n": true,
+          "e": false,
+          "s": false,
+          "w": true
+        },
+        "variant": 0
+      }
+    ]
+  }
+}

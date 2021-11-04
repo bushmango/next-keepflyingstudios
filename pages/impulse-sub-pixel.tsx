@@ -14,6 +14,10 @@ const ImpulseSubPixelPage: NextPage = () => {
 
         <p className={styles.description}></p>
 
+        <p>
+          <a href="/impulse-sub-pixel/sub-pixel-app.html">Try it</a>
+        </p>
+
         <div>Codename Impulse Sub-Pixel</div>
       </main>
 

@@ -1,0 +1,102 @@
+{
+  "parts": {
+    "parts": [
+      {
+        "i": 10,
+        "j": 5,
+        "type": "missile",
+        "connections": {
+          "n": false,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 11,
+        "j": 5,
+        "type": "missile",
+        "connections": {
+          "n": false,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 9,
+        "j": 6,
+        "type": "munitions",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 10,
+        "j": 6,
+        "type": "battery",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 11,
+        "j": 6,
+        "type": "core",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 12,
+        "j": 6,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 9,
+        "j": 7,
+        "type": "mining-beam",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 12,
+        "j": 7,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      }
+    ]
+  }
+}

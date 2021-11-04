@@ -1,0 +1,582 @@
+{
+  "parts": {
+    "parts": [
+      {
+        "i": 12,
+        "j": 0,
+        "type": "missile",
+        "connections": {
+          "n": false,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 13,
+        "j": 0,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 11,
+        "j": 1,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 12,
+        "j": 1,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 13,
+        "j": 1,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 9,
+        "j": 2,
+        "type": "munitions",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 10,
+        "j": 2,
+        "type": "missile",
+        "connections": {
+          "n": false,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 11,
+        "j": 2,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 12,
+        "j": 2,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 8,
+        "j": 3,
+        "type": "engine",
+        "connections": {
+          "n": false,
+          "e": true,
+          "s": false,
+          "w": false
+        },
+        "variant": 0
+      },
+      {
+        "i": 9,
+        "j": 3,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 10,
+        "j": 3,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 11,
+        "j": 3,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 7,
+        "j": 4,
+        "type": "connector",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 8,
+        "j": 4,
+        "type": "missile",
+        "connections": {
+          "n": false,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 9,
+        "j": 4,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 10,
+        "j": 4,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 6,
+        "j": 5,
+        "type": "engine",
+        "connections": {
+          "n": false,
+          "e": true,
+          "s": false,
+          "w": false
+        },
+        "variant": 0
+      },
+      {
+        "i": 7,
+        "j": 5,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 8,
+        "j": 5,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 9,
+        "j": 5,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 5,
+        "j": 6,
+        "type": "connector",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 6,
+        "j": 6,
+        "type": "missile",
+        "connections": {
+          "n": false,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 7,
+        "j": 6,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 8,
+        "j": 6,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 4,
+        "j": 7,
+        "type": "engine",
+        "connections": {
+          "n": false,
+          "e": true,
+          "s": false,
+          "w": false
+        },
+        "variant": 0
+      },
+      {
+        "i": 5,
+        "j": 7,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 6,
+        "j": 7,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 7,
+        "j": 7,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 3,
+        "j": 8,
+        "type": "connector",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 4,
+        "j": 8,
+        "type": "missile",
+        "connections": {
+          "n": false,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 5,
+        "j": 8,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 6,
+        "j": 8,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 2,
+        "j": 9,
+        "type": "engine",
+        "connections": {
+          "n": false,
+          "e": true,
+          "s": false,
+          "w": false
+        },
+        "variant": 0
+      },
+      {
+        "i": 3,
+        "j": 9,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 4,
+        "j": 9,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 5,
+        "j": 9,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 1,
+        "j": 10,
+        "type": "connector",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 2,
+        "j": 10,
+        "type": "missile",
+        "connections": {
+          "n": false,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 3,
+        "j": 10,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 4,
+        "j": 10,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 0,
+        "j": 11,
+        "type": "engine",
+        "connections": {
+          "n": false,
+          "e": true,
+          "s": false,
+          "w": false
+        },
+        "variant": 0
+      },
+      {
+        "i": 1,
+        "j": 11,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 2,
+        "j": 11,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 3,
+        "j": 11,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 0,
+        "j": 12,
+        "type": "missile",
+        "connections": {
+          "n": false,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 1,
+        "j": 12,
+        "type": "core",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 2,
+        "j": 12,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      }
+    ]
+  }
+}

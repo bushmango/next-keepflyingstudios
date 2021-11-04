@@ -1,0 +1,126 @@
+{
+  "parts": {
+    "parts": [
+      {
+        "i": 8,
+        "j": 3,
+        "type": "missile",
+        "connections": {
+          "n": false,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 6,
+        "j": 4,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 7,
+        "j": 4,
+        "type": "missile",
+        "connections": {
+          "n": false,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 8,
+        "j": 4,
+        "type": "connector",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 9,
+        "j": 4,
+        "type": "missile",
+        "connections": {
+          "n": false,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 10,
+        "j": 4,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 7,
+        "j": 5,
+        "type": "conn-gen",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": false
+        },
+        "variant": 1
+      },
+      {
+        "i": 8,
+        "j": 5,
+        "type": "core",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 9,
+        "j": 5,
+        "type": "conn-gen",
+        "connections": {
+          "n": true,
+          "e": false,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 8,
+        "j": 6,
+        "type": "connector",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      }
+    ]
+  }
+}

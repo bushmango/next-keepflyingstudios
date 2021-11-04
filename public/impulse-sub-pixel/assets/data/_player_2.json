@@ -1,0 +1,258 @@
+{
+  "parts": {
+    "parts": [
+      {
+        "i": 8,
+        "j": 4,
+        "type": "laser-cannon",
+        "connections": {
+          "n": false,
+          "e": false,
+          "s": true,
+          "w": false
+        },
+        "variant": 0
+      },
+      {
+        "i": 5,
+        "j": 5,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 6,
+        "j": 5,
+        "type": "conn-gen",
+        "connections": {
+          "n": false,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 2
+      },
+      {
+        "i": 7,
+        "j": 5,
+        "type": "missile",
+        "connections": {
+          "n": false,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 8,
+        "j": 5,
+        "type": "armor-f",
+        "connections": {
+          "n": true,
+          "e": false,
+          "s": false,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 6,
+        "j": 6,
+        "type": "engine",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": false
+        },
+        "variant": 0
+      },
+      {
+        "i": 7,
+        "j": 6,
+        "type": "core",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 8,
+        "j": 6,
+        "type": "anti-missile",
+        "connections": {
+          "n": false,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 9,
+        "j": 6,
+        "type": "laser-cannon",
+        "connections": {
+          "n": false,
+          "e": false,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 7,
+        "j": 7,
+        "type": "cargo-2",
+        "connections": {
+          "n": true,
+          "e": false,
+          "s": false,
+          "w": false
+        },
+        "variant": 0
+      },
+      {
+        "i": 9,
+        "j": 7,
+        "type": "connector",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 6,
+        "j": 8,
+        "type": "autocannon",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 8,
+        "j": 8,
+        "type": "munitions",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 9,
+        "j": 8,
+        "type": "conn-gen",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": false,
+          "w": true
+        },
+        "variant": 1
+      },
+      {
+        "i": 10,
+        "j": 8,
+        "type": "shield",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 6,
+        "j": 9,
+        "type": "munitions",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 7,
+        "j": 9,
+        "type": "munitions",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 8,
+        "j": 9,
+        "type": "munitions",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 10,
+        "j": 9,
+        "type": "life-support",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 6,
+        "j": 10,
+        "type": "munitions",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      },
+      {
+        "i": 8,
+        "j": 10,
+        "type": "autocannon",
+        "connections": {
+          "n": true,
+          "e": true,
+          "s": true,
+          "w": true
+        },
+        "variant": 0
+      }
+    ]
+  }
+}

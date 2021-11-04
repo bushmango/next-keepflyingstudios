@@ -1,0 +1,42 @@
+{ "frames": {
+   "ships1-slice.aseprite": {
+    "frame": { "x": 0, "y": 0, "w": 464, "h": 400 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 32, "y": 16, "w": 464, "h": 400 },
+    "sourceSize": { "w": 512, "h": 512 },
+    "duration": 100
+   }
+ },
+ "meta": {
+  "app": "http://www.aseprite.org/",
+  "version": "1.2.25-x64",
+  "image": "ships1-slice.png",
+  "format": "RGBA8888",
+  "size": { "w": 464, "h": 400 },
+  "scale": "1",
+  "frameTags": [
+  ],
+  "layers": [
+   { "name": "Layer", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+   { "name": "Slice 1", "color": "#0000ffff", "keys": [{ "frame": 0, "bounds": {"x": 241, "y": 164, "w": 93, "h": 43 } }] },
+   { "name": "Slice 2", "color": "#0000ffff", "keys": [{ "frame": 0, "bounds": {"x": 346, "y": 172, "w": 56, "h": 39 } }] },
+   { "name": "Slice 3", "color": "#0000ffff", "keys": [{ "frame": 0, "bounds": {"x": 345, "y": 213, "w": 55, "h": 21 } }] },
+   { "name": "Slice 4", "color": "#0000ffff", "keys": [{ "frame": 0, "bounds": {"x": 348, "y": 239, "w": 73, "h": 33 } }] },
+   { "name": "Slice 5", "color": "#0000ffff", "keys": [{ "frame": 0, "bounds": {"x": 342, "y": 277, "w": 81, "h": 24 } }] },
+   { "name": "Slice 6", "color": "#0000ffff", "keys": [{ "frame": 0, "bounds": {"x": 336, "y": 307, "w": 88, "h": 25 } }] },
+   { "name": "Slice 7", "color": "#0000ffff", "keys": [{ "frame": 0, "bounds": {"x": 347, "y": 336, "w": 89, "h": 30 } }] },
+   { "name": "Slice 8", "color": "#0000ffff", "keys": [{ "frame": 0, "bounds": {"x": 356, "y": 368, "w": 99, "h": 44 } }] },
+   { "name": "Slice 9", "color": "#0000ffff", "keys": [{ "frame": 0, "bounds": {"x": 250, "y": 209, "w": 85, "h": 30 } }] },
+   { "name": "Slice 10", "color": "#0000ffff", "keys": [{ "frame": 0, "bounds": {"x": 248, "y": 241, "w": 90, "h": 29 } }] },
+   { "name": "Slice 11", "color": "#0000ffff", "keys": [{ "frame": 0, "bounds": {"x": 247, "y": 278, "w": 75, "h": 22 } }] },
+   { "name": "Slice 12", "color": "#0000ffff", "keys": [{ "frame": 0, "bounds": {"x": 248, "y": 309, "w": 72, "h": 23 } }] },
+   { "name": "Slice 13", "color": "#0000ffff", "keys": [{ "frame": 0, "bounds": {"x": 256, "y": 337, "w": 30, "h": 30 } }] },
+   { "name": "Slice 14", "color": "#0000ffff", "keys": [{ "frame": 0, "bounds": {"x": 290, "y": 337, "w": 43, "h": 32 } }] },
+   { "name": "Slice 15", "color": "#0000ffff", "keys": [{ "frame": 0, "bounds": {"x": 252, "y": 371, "w": 36, "h": 23 } }] },
+   { "name": "Slice 16", "color": "#0000ffff", "keys": [{ "frame": 0, "bounds": {"x": 294, "y": 372, "w": 49, "h": 41 } }] }
+  ]
+ }
+}
