@@ -1,16 +1,10 @@
-import type {
-  GetServerSideProps,
-  GetStaticProps,
-  InferGetServerSidePropsType,
-  NextPage,
-} from "next";
+import { tilemaps } from ".prisma/client";
+import type { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import React from "react";
 import { Footer } from "../../components/layout/Footer";
 import { HeadTitle } from "../../components/layout/HeadTitle";
-import styles from "../../styles/Home.module.css";
-
 import prisma from "../../lib/prisma";
-import { tilemaps } from ".prisma/client";
+import styles from "../../styles/Home.module.css";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const data = await prisma.tilemaps.findMany({
@@ -30,9 +24,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   return { props: { data } };
 };
 
-const ImpulseSubPixelPage: InferGetServerSidePropsType<
-  typeof getServerSideProps
-> = (props: { data: tilemaps[] }) => {
+const List: InferGetServerSidePropsType<typeof getServerSideProps> = (props: {
+  data: tilemaps[];
+}) => {
   return (
     <div className={styles.container}>
       <HeadTitle title="List Pixelettas - Impulse Sub-Pixel Editing Software" />
@@ -43,7 +37,9 @@ const ImpulseSubPixelPage: InferGetServerSidePropsType<
           <div>List of tilemaps</div>
           <div style={{ marginLeft: "1em" }}>
             {props.data.map((c) => (
-              <div key={c.id}>{c.title}</div>
+              <div key={c.id}>
+                <a href={`/impulse-sub-pixel/tilemaps/${c.id}`}>{c.title}</a>
+              </div>
             ))}
           </div>
         </div>
@@ -54,4 +50,4 @@ const ImpulseSubPixelPage: InferGetServerSidePropsType<
   );
 };
 
-export default ImpulseSubPixelPage;
+export default List;
