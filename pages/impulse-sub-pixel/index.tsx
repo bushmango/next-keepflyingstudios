@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
 import React from "react";
-import { Footer } from "../components/layout/Footer";
-import { HeadTitle } from "../components/layout/HeadTitle";
-import styles from "../styles/Home.module.css";
+import { Footer } from "../../components/layout/Footer";
+import { HeadTitle } from "../../components/layout/HeadTitle";
+import styles from "../../styles/Home.module.css";
 
 const ImpulseSubPixelPage: NextPage = () => {
   return (
@@ -16,6 +16,10 @@ const ImpulseSubPixelPage: NextPage = () => {
 
         <p>
           <a href="/impulse-sub-pixel/sub-pixel-app.html">Try it</a>
+        </p>
+
+        <p>
+          <a href="/impulse-sub-pixel/list">See examples</a>
         </p>
 
         <div>Codename Impulse Sub-Pixel</div>

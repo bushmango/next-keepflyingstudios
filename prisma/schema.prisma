@@ -1,0 +1,18 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model tilemaps {
+  id           String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  owner        String?   @db.Uuid
+  created_at   DateTime? @default(now()) @db.Timestamptz(6)
+  updated_at   DateTime? @default(now()) @db.Timestamptz(6)
+  title        String?
+  data         Json?     @db.Json
+  data_version Int?      @db.SmallInt
+}
