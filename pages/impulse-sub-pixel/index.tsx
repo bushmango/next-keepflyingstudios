@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Link from "next/link";
 import React from "react";
 import { Footer } from "../../components/layout/Footer";
 import { HeadTitle } from "../../components/layout/HeadTitle";
@@ -19,7 +20,8 @@ const ImpulseSubPixelPage: NextPage = () => {
         </p>
 
         <p>
-          <a href="/impulse-sub-pixel/list">See examples</a>
+          <Link href="/impulse-sub-pixel/list">See examples</Link>
+          {/* <a href="/impulse-sub-pixel/list">See examples</a> */}
         </p>
 
         <div>Codename Impulse Sub-Pixel</div>

@@ -1,13 +1,14 @@
 import { tilemaps } from ".prisma/client";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import Link from "next/link";
 import React from "react";
-import prisma from "../../../lib/prisma";
+import { prismaClient } from "../../../lib/prisma";
 import { Footer } from "../../../components/layout/Footer";
 import { HeadTitle } from "../../../components/layout/HeadTitle";
 import styles from "../../../styles/Home.module.css";
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
-  const data = await prisma.tilemaps.findUnique({
+  const data = await prismaClient.tilemaps.findUnique({
     where: {
       id: "" + params?.pid,
     },
@@ -35,7 +36,8 @@ const Pid: InferGetServerSidePropsType<typeof getServerSideProps> = (props: {
           <div style={{ marginLeft: "1em" }}>{props.data?.title}</div>
         </div>
         <div>
-          <a href="/impulse-sub-pixel/list">Back to list</a>
+          <Link href="/impulse-sub-pixel/list">Back to list</Link>
+          {/* <a href="/impulse-sub-pixel/list">Back to list</a> */}
         </div>
       </main>
 
