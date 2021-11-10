@@ -26,6 +26,18 @@ export default async function handler(
   const data = await prismaClient.tilemaps.findMany({
     where: {
       owner: user,
+      OR: [
+        {
+          deleted: {
+            equals: null,
+          },
+        },
+        {
+          deleted: {
+            equals: false,
+          },
+        },
+      ],
     },
     select: {
       id: true,

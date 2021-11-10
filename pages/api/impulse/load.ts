@@ -11,6 +11,7 @@ type Data = {
     title: string | null;
     data_string: string | null;
     data_version: number | null;
+    lastUpdated: number;
   } | null;
   err?: string;
 };
@@ -35,10 +36,25 @@ export default async function handler(
     select: {
       id: true,
       title: true,
+      updated_at: true,
       data_string: true,
       data_version: true,
     },
   });
 
-  res.status(200).json({ data });
+  if (!data) {
+    res.status(200).json({
+      err: "no-data",
+    });
+  } else {
+    res.status(200).json({
+      data: {
+        id: data.id,
+        title: data.title,
+        lastUpdated: data.updated_at?.getTime() || 0,
+        data_string: data.data_string || null,
+        data_version: data.data_version,
+      },
+    });
+  }
 }

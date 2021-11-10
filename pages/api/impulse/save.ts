@@ -9,6 +9,8 @@ const namespace = "impulse:save";
 
 type Data = {
   id?: string;
+  title?: string;
+  lastUpdated?: number;
   err?: string;
 };
 
@@ -24,13 +26,16 @@ export default async function handler(
 
   let { user, title, dir, data_string, id, data_version } = req.body;
   console.log(namespace, "saving: ", title, id, user);
+
+  let updated_at = new Date();
+
   let tm: Partial<tilemaps> = {
     id,
     data_string,
     data_version,
     owner: user,
     title: title,
-    updated_at: new Date(),
+    updated_at,
   };
 
   if (!id) {
@@ -45,7 +50,11 @@ export default async function handler(
       data: tm,
     });
   }
-  res.status(200).json({ id: tm.id });
+  res.status(200).json({
+    id: tm.id,
+    title: tm.title || undefined,
+    lastUpdated: tm.updated_at ? tm.updated_at.getTime() : 0,
+  });
   // prismaClient.tilemaps.upsert({
   //   where: {
   //     id: id,

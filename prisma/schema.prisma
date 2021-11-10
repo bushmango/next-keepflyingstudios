@@ -13,8 +13,9 @@ model tilemaps {
   owner        String?   @db.Uuid
   created_at   DateTime? @default(now()) @db.Timestamptz(6)
   updated_at   DateTime? @default(now()) @db.Timestamptz(6)
+  deleted      Boolean?  @default(false)
   title        String?
-  data         Json?     @db.Json
+  // data         Json?     @db.Json
   data_version Int?      @db.SmallInt
   data_string  String?
 }
