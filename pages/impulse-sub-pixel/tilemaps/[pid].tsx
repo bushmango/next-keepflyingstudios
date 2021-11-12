@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { tilemaps } from ".prisma/client";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Link from "next/link";
@@ -34,6 +35,12 @@ const Pid: InferGetServerSidePropsType<typeof getServerSideProps> = (props: {
         <div>
           <div>Tilemap</div>
           <div style={{ marginLeft: "1em" }}>{props.data?.title}</div>
+          <div>
+            <img
+              alt={`${props.data?.title} preview`}
+              src={`https://impulse-tilemap-previews.s3.amazonaws.com/public/${props.data?.id}.png`}
+            />
+          </div>
         </div>
         <div>
           <Link href="/impulse-sub-pixel/list">Back to list</Link>

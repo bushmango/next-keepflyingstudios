@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { tilemaps } from ".prisma/client";
 import type { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Link from "next/link";
@@ -9,6 +10,20 @@ import styles from "../../styles/Home.module.css";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const data = await prismaClient.tilemaps.findMany({
+    where: {
+      OR: [
+        {
+          deleted: {
+            equals: null,
+          },
+        },
+        {
+          deleted: {
+            equals: false,
+          },
+        },
+      ],
+    },
     select: {
       id: true,
       title: true,
@@ -42,7 +57,11 @@ const List: InferGetServerSidePropsType<typeof getServerSideProps> = (props: {
                 <Link href={`/impulse-sub-pixel/tilemaps/${c.id}`}>
                   {c.title}
                 </Link>
-                <a href={`/impulse-sub-pixel/tilemaps/${c.id}`}>{c.title}</a>
+                <img
+                  alt={`${c.title} preview`}
+                  src={`https://impulse-tilemap-previews.s3.amazonaws.com/public/${c.id}.png`}
+                />
+                {/* <a href={`/impulse-sub-pixel/tilemaps/${c.id}`}>{c.title}</a> */}
               </div>
             ))}
           </div>
