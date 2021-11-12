@@ -26,14 +26,29 @@ export default async function handler(
     // }
 
     let { id } = req.body;
+    if (!id) {
+      id = "1234567";
+    }
 
     const command = new PutObjectCommand({
       Bucket: bucket,
       ACL: "public-read",
-      Key: id + ".png",
+      Key: "public/" + id + ".png",
+      ContentType: "image/png",
     });
     var url = await getSignedUrl(s3client, command, { expiresIn: 5 * 60 });
     console.log("The URL is", url); // expires in 60 seconds
+
+    // let res2 = await fetch(url, {
+    //   method: "PUT",
+    //   headers: {
+    //     "Content-Type": "image/png",
+    //     // "x-amz-acl": "public-read",
+    //     // "x-id": "PutObject",
+    //   },
+    //   body: "this is a test " + id,
+    // });
+    // console.log("put", id, res2);
 
     res.status(200).json({
       url,
