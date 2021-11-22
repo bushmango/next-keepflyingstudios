@@ -1,4 +1,4 @@
-export const herp = "derp"
+export const herp = 'derp'
 
 // IAM user
 // {

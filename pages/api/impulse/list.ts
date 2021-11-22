@@ -1,10 +1,10 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from "next"
-import { runCorsMiddleware } from "../../../lib/cors"
-import { prismaClient } from "../../../lib/prisma"
-import * as ensure from "../../../lib/ensure"
+import type { NextApiRequest, NextApiResponse } from 'next'
+import { runCorsMiddleware } from '../../../lib/cors'
+import { prismaClient } from '../../../lib/prisma'
+import * as ensure from '../../../lib/ensure'
 
-const namespace = "impulse:list"
+const namespace = 'impulse:list'
 
 type Data = {
   data?: { id: string; title: string | null }[]
@@ -13,7 +13,7 @@ type Data = {
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<Data>,
 ) {
   await runCorsMiddleware(req, res)
 
@@ -27,7 +27,7 @@ export default async function handler(
     return
   }
 
-  console.log(namespace, "listing: ", user_id)
+  console.log(namespace, 'listing: ', user_id)
 
   const data = await prismaClient.tilemaps.findMany({
     where: {

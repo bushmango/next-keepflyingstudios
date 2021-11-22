@@ -1,12 +1,12 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import { tilemaps } from "@prisma/client"
-import type { NextApiRequest, NextApiResponse } from "next"
-import { v4 as uuidv4 } from "uuid"
-import { runCorsMiddleware } from "../../../lib/cors"
-import * as ensure from "../../../lib/ensure"
-import { prismaClient } from "../../../lib/prisma"
+import { tilemaps } from '@prisma/client'
+import type { NextApiRequest, NextApiResponse } from 'next'
+import { v4 as uuidv4 } from 'uuid'
+import { runCorsMiddleware } from '../../../lib/cors'
+import * as ensure from '../../../lib/ensure'
+import { prismaClient } from '../../../lib/prisma'
 
-const namespace = "impulse:save"
+const namespace = 'impulse:save'
 
 type Data = {
   id?: string
@@ -17,7 +17,7 @@ type Data = {
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<Data>,
 ) {
   await runCorsMiddleware(req, res)
 
@@ -27,7 +27,7 @@ export default async function handler(
 
   let { user_id, title, dir, data_string, id, data_version, last_updated } =
     req.body
-  console.log(namespace, "saving: ", title, id, user_id)
+  console.log(namespace, 'saving: ', title, id, user_id)
 
   if (ensure.isMissingArgs(res, [user_id, title, data_string])) {
     return

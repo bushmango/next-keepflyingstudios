@@ -1,7 +1,7 @@
-import type { NextPage } from "next"
-import { Email } from "../components/layout/Email"
-import { Footer } from "../components/layout/Footer"
-import styles from "../styles/Home.module.css"
+import type { NextPage } from 'next'
+import { Email } from '../components/layout/Email'
+import { Footer } from '../components/layout/Footer'
+import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
   return (
@@ -14,15 +14,15 @@ const Home: NextPage = () => {
         </p>
 
         <div className={styles.grid}>
-          <a href="/impulse-sub-pixel" className={styles.card}>
+          <a href='/impulse-sub-pixel' className={styles.card}>
             <h2>Impulse Sub-Pixel &rarr;</h2>
             <p>Sub-pixel rendering software.</p>
           </a>
-          <a href="/karaoke-pro" className={styles.card}>
+          <a href='/karaoke-pro' className={styles.card}>
             <h2>Karaoke Pro &rarr;</h2>
             <p>Professional Karaoke Software.</p>
           </a>
-          <a href="https://cowsayify.com" className={styles.card}>
+          <a href='https://cowsayify.com' className={styles.card}>
             <h2>Cowsayify &rarr;</h2>
             <p>NextJS demo app.</p>
           </a>
