@@ -1,8 +1,8 @@
-import type { NextPage } from "next";
-import React from "react";
-import { Footer } from "../components/layout/Footer";
-import { HeadTitle } from "../components/layout/HeadTitle";
-import styles from "../styles/Home.module.css";
+import type { NextPage } from "next"
+import React from "react"
+import { Footer } from "../components/layout/Footer"
+import { HeadTitle } from "../components/layout/HeadTitle"
+import styles from "../styles/Home.module.css"
 
 const KaraokeProPage: NextPage = () => {
   return (
@@ -19,7 +19,7 @@ const KaraokeProPage: NextPage = () => {
 
       <Footer />
     </div>
-  );
-};
+  )
+}
 
-export default KaraokeProPage;
+export default KaraokeProPage

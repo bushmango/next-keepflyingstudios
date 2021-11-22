@@ -1,31 +1,37 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from "next";
-import { runCorsMiddleware } from "../../../lib/cors";
-import { prismaClient } from "../../../lib/prisma";
+import type { NextApiRequest, NextApiResponse } from "next"
+import { runCorsMiddleware } from "../../../lib/cors"
+import { prismaClient } from "../../../lib/prisma"
+import * as ensure from "../../../lib/ensure"
 
-const namespace = "impulse:list";
+const namespace = "impulse:list"
 
 type Data = {
-  data?: { id: string; title: string | null }[];
-  err?: string;
-};
+  data?: { id: string; title: string | null }[]
+  err?: string
+}
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  await runCorsMiddleware(req, res);
-  if (req.method !== "POST") {
-    res.status(400).json({ err: "not-post" });
-    return;
+  await runCorsMiddleware(req, res)
+
+  if (ensure.isNotPost(req, res)) {
+    return
   }
 
-  let { user } = req.body;
-  console.log(namespace, "listing: ", user);
+  let { user_id } = req.body
+
+  if (ensure.isMissingArgs(res, [user_id])) {
+    return
+  }
+
+  console.log(namespace, "listing: ", user_id)
 
   const data = await prismaClient.tilemaps.findMany({
     where: {
-      owner: user,
+      owner: user_id,
       OR: [
         {
           deleted: {
@@ -43,9 +49,9 @@ export default async function handler(
       id: true,
       title: true,
     },
-  });
+  })
 
-  console.log(namespace, data);
+  console.log(namespace, data)
 
-  res.status(200).json({ data: data });
+  res.status(200).json({ data: data })
 }

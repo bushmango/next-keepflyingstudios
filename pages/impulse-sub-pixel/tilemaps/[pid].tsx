@@ -1,12 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
-import { tilemaps } from ".prisma/client";
-import { GetServerSideProps, InferGetServerSidePropsType } from "next";
-import Link from "next/link";
-import React from "react";
-import { prismaClient } from "../../../lib/prisma";
-import { Footer } from "../../../components/layout/Footer";
-import { HeadTitle } from "../../../components/layout/HeadTitle";
-import styles from "../../../styles/Home.module.css";
+import { tilemaps } from ".prisma/client"
+import { GetServerSideProps, InferGetServerSidePropsType } from "next"
+import Link from "next/link"
+import React from "react"
+import { prismaClient } from "../../../lib/prisma"
+import { Footer } from "../../../components/layout/Footer"
+import { HeadTitle } from "../../../components/layout/HeadTitle"
+import styles from "../../../styles/Home.module.css"
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const data = await prismaClient.tilemaps.findUnique({
@@ -17,14 +17,14 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
       id: true,
       title: true,
     },
-  });
+  })
   return {
     props: { data },
-  };
-};
+  }
+}
 
 const Pid: InferGetServerSidePropsType<typeof getServerSideProps> = (props: {
-  data: tilemaps | null;
+  data: tilemaps | null
 }) => {
   return (
     <div className={styles.container}>
@@ -50,7 +50,7 @@ const Pid: InferGetServerSidePropsType<typeof getServerSideProps> = (props: {
 
       <Footer />
     </div>
-  );
-};
+  )
+}
 
-export default Pid;
+export default Pid

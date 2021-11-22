@@ -1,7 +1,7 @@
-import type { NextPage } from "next";
-import { Email } from "../components/layout/Email";
-import { Footer } from "../components/layout/Footer";
-import styles from "../styles/Home.module.css";
+import type { NextPage } from "next"
+import { Email } from "../components/layout/Email"
+import { Footer } from "../components/layout/Footer"
+import styles from "../styles/Home.module.css"
 
 const Home: NextPage = () => {
   return (
@@ -38,7 +38,7 @@ const Home: NextPage = () => {
 
       <Footer />
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

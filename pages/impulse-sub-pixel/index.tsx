@@ -1,9 +1,9 @@
-import type { NextPage } from "next";
-import Link from "next/link";
-import React from "react";
-import { Footer } from "../../components/layout/Footer";
-import { HeadTitle } from "../../components/layout/HeadTitle";
-import styles from "../../styles/Home.module.css";
+import type { NextPage } from "next"
+import Link from "next/link"
+import React from "react"
+import { Footer } from "../../components/layout/Footer"
+import { HeadTitle } from "../../components/layout/HeadTitle"
+import styles from "../../styles/Home.module.css"
 
 const ImpulseSubPixelPage: NextPage = () => {
   return (
@@ -29,7 +29,7 @@ const ImpulseSubPixelPage: NextPage = () => {
 
       <Footer />
     </div>
-  );
-};
+  )
+}
 
-export default ImpulseSubPixelPage;
+export default ImpulseSubPixelPage

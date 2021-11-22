@@ -1,10 +1,10 @@
-import { S3Client } from "@aws-sdk/client-s3";
+import { S3Client } from "@aws-sdk/client-s3"
 
-require("dotenv").config();
+require("dotenv").config()
 
-const REGION = "us-east-1";
+const REGION = "us-east-1"
 
-console.log("create client", process.env.AWS_S3_KEY);
+console.log("create client", process.env.AWS_S3_KEY)
 const s3client = new S3Client({
   credentials: {
     accessKeyId: process.env.AWS_S3_KEY || "",
@@ -12,6 +12,6 @@ const s3client = new S3Client({
   },
   region: REGION,
   forcePathStyle: true,
-});
+})
 
-export { s3client };
+export { s3client }

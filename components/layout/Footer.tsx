@@ -1,6 +1,6 @@
-import styles from "../../styles/Home.module.css";
-import Image from "next/image";
-import { Email } from "./Email";
+import styles from "../../styles/Home.module.css"
+import Image from "next/image"
+import { Email } from "./Email"
 
 export const Footer = () => {
   return (
@@ -18,5 +18,5 @@ export const Footer = () => {
       </a>
       <Email />
     </footer>
-  );
-};
+  )
+}

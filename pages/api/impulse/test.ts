@@ -1,37 +1,37 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from "next";
-import { runCorsMiddleware } from "../../../lib/cors";
+import type { NextApiRequest, NextApiResponse } from "next"
+import { runCorsMiddleware } from "../../../lib/cors"
 
-import { PutObjectCommand } from "@aws-sdk/client-s3";
-import { s3client } from "../../../lib/s3client";
+import { PutObjectCommand } from "@aws-sdk/client-s3"
+import { s3client } from "../../../lib/s3client"
 
-const namespace = "impulse:test";
+const namespace = "impulse:test"
 
 type Data = {
-  err?: string;
-};
+  err?: string
+}
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  await runCorsMiddleware(req, res);
+  await runCorsMiddleware(req, res)
   // if (req.method !== "POST") {
   //   res.status(400).json({ err: "not-post" });
   //   return;
   // }
 
-  let { user, title, dir, data_string, id, data_version } = req.body;
-  console.log(namespace, "testing: ", title, id, user);
+  let { user, title, dir, data_string, id, data_version } = req.body
+  console.log(namespace, "testing: ", title, id, user)
 
   const commandPut = new PutObjectCommand({
     Bucket: "impulse-tilemap-previews",
     Key: "test-key",
     Body: "this is a test",
-  });
+  })
 
-  const responsePut = await s3client.send(commandPut);
-  console.log("put", responsePut.$metadata);
+  const responsePut = await s3client.send(commandPut)
+  console.log("put", responsePut.$metadata)
   // await listItemsInBucket(bucketName);
 
   // const command2 = new PutObjectCommand({
@@ -64,5 +64,5 @@ export default async function handler(
 
   res.status(200).json({
     err: "none",
-  });
+  })
 }
