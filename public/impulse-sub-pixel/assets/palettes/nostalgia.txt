@@ -1,0 +1,9 @@
+;paint.net Palette File
+;Downloaded from Lospec.com/palette-list
+;Palette Name: Nostalgia
+;Description: Part of the <a target="_blank" href="https://lospec.com/palette-list/tag/wildleoknightgameboy">WildLeoKnight Gameboy Palettes Set</a>
+;Colors: 4
+FFd0d058
+FFa0a840
+FF708028
+FF405010
