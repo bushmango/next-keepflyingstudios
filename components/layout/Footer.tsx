@@ -9,7 +9,7 @@ function LoggedInComponent() {
   const { data: session } = useSession()
 
   if (session) {
-    let user = session?.user?.name || session?.user?.email || 'unknown'
+    let user = '' + (session?.user?.name || session?.user?.email || 'unknown')
 
     return (
       <>
