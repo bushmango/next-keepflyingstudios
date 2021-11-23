@@ -23,10 +23,21 @@ export default NextAuth({
       clientId: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
     }),
+
     // GoogleProvider({
     //   clientId: process.env.GOOGLE_CLIENT_ID || '',
     //   clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
     // }),
     // ...add more providers here
   ],
+  callbacks: {
+    async session({ session, token, user }) {
+      // Send properties to the client, like an access_token from a provider.
+      // session.accessToken = token.accessToken
+      console.log('session', token, user)
+      session.user_id = user.id
+      session.user_access_token = user.custom_access_token
+      return session
+    },
+  },
 })
