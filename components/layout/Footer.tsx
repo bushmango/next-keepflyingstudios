@@ -12,10 +12,9 @@ function LoggedInComponent() {
 
   if (session) {
     let username = getUsername(session)
-
     return (
       <>
-        <Link href='/account/login'>Signed in as {username}</Link>
+        <Link href='/account/login'>Signed in as {'' + username}</Link>
         {/* <Link href='/account/login'></Link> */}
         {/* <pre>{JSON.stringify(session, null, 2)}</pre> */}
       </>
@@ -35,9 +34,11 @@ export const Footer = () => {
     <footer className={styles.footer}>
       <ErrorBoundary>
         {/* <Link href='/api/auth/signin'>Sign in</Link> */}
-        <LoggedInComponent />
+        <ErrorBoundary>
+          <LoggedInComponent />
+        </ErrorBoundary>
 
-        <a
+        {/* <a
           href='https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app'
           target='_blank'
           rel='noopener noreferrer'
@@ -46,7 +47,7 @@ export const Footer = () => {
           <span className={styles.logo}>
             <Image src='/vercel.svg' alt='Vercel Logo' width={72} height={16} />
           </span>
-        </a>
+        </a> */}
         <Email />
       </ErrorBoundary>
     </footer>

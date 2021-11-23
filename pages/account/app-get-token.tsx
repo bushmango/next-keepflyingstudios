@@ -12,7 +12,7 @@ interface ITokenData {
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const session = await getSession(context)
 
-  if (session && session.user && session.user.email) {
+  if (session && session.user) {
     // const data = await prismaClient.user.findUnique({
     //   where: {
     //     email: session.user.email,
