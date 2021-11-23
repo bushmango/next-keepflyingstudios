@@ -13,18 +13,12 @@ function LoggedInComponent() {
   if (session) {
     let username = getUsername(session)
     return (
-      <>
-        <Link href='/account/login'>Signed in as {'' + username}</Link>
-        {/* <Link href='/account/login'></Link> */}
-        {/* <pre>{JSON.stringify(session, null, 2)}</pre> */}
-      </>
+      <Link href='/account/login' passHref>
+        <span>Signed in as {'' + username}</span>
+      </Link>
     )
   }
-  return (
-    <>
-      <Link href='/account/login'>Sign in</Link>
-    </>
-  )
+  return <Link href='/account/login'>Sign in</Link>
 }
 
 export const Footer = () => {
@@ -32,9 +26,9 @@ export const Footer = () => {
 
   return (
     <footer className={styles.footer}>
-      <ErrorBoundary>
+      <ErrorBoundary name='footer'>
         {/* <Link href='/api/auth/signin'>Sign in</Link> */}
-        <ErrorBoundary>
+        <ErrorBoundary name='login'>
           <LoggedInComponent />
         </ErrorBoundary>
 
