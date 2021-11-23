@@ -10,9 +10,9 @@ function LoggedInComponent() {
   if (session) {
     return (
       <>
-        Signed in as
-        <Link href='/account/login'>{session?.user?.email}</Link>
-        {/* <pre>{JSON.stringify(session, null, 2)}</pre> */}
+        <Link href='/account/login'>Signed in</Link>
+        {/* <Link href='/account/login'>{session?.user?.email}</Link> */}
+        <pre>{JSON.stringify(session, null, 2)}</pre>
       </>
     )
   }
