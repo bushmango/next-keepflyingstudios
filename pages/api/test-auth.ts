@@ -11,7 +11,11 @@ const namespace = 'impulse:test-auth'
 type Data = {
   name: string
   session: Session | null
-  data?: { email: string | null; custom_access_token: string } | null
+  data?: {
+    id: string
+    email: string | null
+    custom_access_token: string
+  } | null
 }
 
 export default async function handler(
@@ -38,6 +42,7 @@ export default async function handler(
         email: session.user.email,
       },
       select: {
+        id: true,
         email: true,
         custom_access_token: true,
       },
