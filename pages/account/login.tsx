@@ -1,16 +1,20 @@
 import type { NextPage } from 'next'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import React from 'react'
+import { ErrorBoundary } from '../../components/core/ErrorBoundary'
 import { Footer } from '../../components/layout/Footer'
 import { HeadTitle } from '../../components/layout/HeadTitle'
+import { getUsername } from '../../lib/sessionUtil'
 import styles from '../../styles/Home.module.css'
 
 function LoggedInComponent() {
   const { data: session } = useSession()
   if (session) {
+    let username = getUsername(session)
+
     return (
       <>
-        Signed in as {session?.user?.email} <br />
+        Signed in as {username} <br />
         <button onClick={() => signOut()}>Sign out</button>
         {/* <pre>{JSON.stringify(session, null, 2)}</pre> */}
       </>
@@ -31,7 +35,9 @@ const LoginPage: NextPage = () => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>Login</h1>
-        <LoggedInComponent />
+        <ErrorBoundary>
+          <LoggedInComponent />
+        </ErrorBoundary>
       </main>
 
       {/* <SupabaseAuth /> */}
