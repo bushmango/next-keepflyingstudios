@@ -2,29 +2,36 @@
 import type { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { getSession } from 'next-auth/react'
 import { useEffect } from 'react'
-import { prismaClient } from '../../lib/prisma'
 
 interface ITokenData {
-  id: string
+  user_id: string
   email: string
-  custom_access_token: string
+  user_access_token: string
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const session = await getSession(context)
 
   if (session && session.user && session.user.email) {
-    const data = await prismaClient.user.findUnique({
-      where: {
-        email: session.user.email,
+    // const data = await prismaClient.user.findUnique({
+    //   where: {
+    //     email: session.user.email,
+    //   },
+    //   select: {
+    //     id: true,
+    //     email: true,
+    //     custom_access_token: true,
+    //   },
+    // })
+    return {
+      props: {
+        data: {
+          user_id: session.user_id,
+          email: session.user?.email || '',
+          user_access_token: session.user_access_token,
+        },
       },
-      select: {
-        id: true,
-        email: true,
-        custom_access_token: true,
-      },
-    })
-    return { props: { data } }
+    }
   }
 
   return { props: {} }
@@ -33,16 +40,19 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 const AppGetTokenPage: InferGetServerSidePropsType<typeof getServerSideProps> =
   (props: { data?: ITokenData }) => {
     useEffect(() => {
-      console.log('use effect fired!')
       if (window && window.top) {
-        window.top.postMessage('tokens:' + JSON.stringify(props.data), '*')
+        let tokenData = ''
+        if (props.data) {
+          tokenData = JSON.stringify(props.data)
+        }
+        window.top.postMessage('tokens:' + tokenData, '*')
       }
     }, [])
 
     return (
       <div>
-        Token data
-        <pre>{JSON.stringify(props.data, null, 2)}</pre>
+        Getting token data...
+        {/* <pre>{JSON.stringify(props.data, null, 2)}</pre> */}
       </div>
     )
   }
