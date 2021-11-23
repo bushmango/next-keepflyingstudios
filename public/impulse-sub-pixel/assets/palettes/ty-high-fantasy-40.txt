@@ -1,0 +1,45 @@
+;paint.net Palette File
+;Downloaded from Lospec.com/palette-list
+;Palette Name: TY High Fantasy 40
+;Description: A palette which could go well in a dark fantasy setting or whatever you may want the setting to be.
+;Colors: 40
+FFe6dac5
+FFa49983
+FF7b7d6a
+FF6a6548
+FF4a484a
+FF353235
+FF425a58
+FF314646
+FF2f3140
+FF182029
+FFbdd2de
+FF81b5a2
+FF627c80
+FF607a53
+FF545f28
+FF484c2a
+FF223925
+FF000000
+FF8f5c66
+FF5a4256
+FF7a393d
+FF562f36
+FF402736
+FFbf5437
+FF842d17
+FF5a231d
+FFcaaa6c
+FFb5835a
+FF855139
+FF60342c
+FFaf8e2c
+FF8a5c0a
+FFaf5722
+FF703a1a
+FF3b1c16
+FF2a1810
+FF80592e
+FF554323
+FF353021
+FF1c200f

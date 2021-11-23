@@ -11,18 +11,7 @@ import styles from '../../styles/Home.module.css'
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const data = await prismaClient.tilemaps.findMany({
     where: {
-      OR: [
-        {
-          deleted: {
-            equals: null,
-          },
-        },
-        {
-          deleted: {
-            equals: false,
-          },
-        },
-      ],
+      deleted: false,
     },
     select: {
       id: true,

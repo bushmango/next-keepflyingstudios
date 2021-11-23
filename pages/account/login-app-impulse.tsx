@@ -1,8 +1,10 @@
 import type { NextPage } from 'next'
 import { signIn, signOut, useSession } from 'next-auth/react'
-import React from 'react'
+import Link from 'next/link'
+import React, { useEffect } from 'react'
 import { Footer } from '../../components/layout/Footer'
 import { HeadTitle } from '../../components/layout/HeadTitle'
+import { getQueryStringParameterByName } from '../../lib/getQueryString'
 import styles from '../../styles/Home.module.css'
 
 function LoggedInComponent() {
@@ -25,13 +27,20 @@ function LoggedInComponent() {
 }
 
 const LoginPage: NextPage = () => {
+  let [url, setUrl] = React.useState('')
+  useEffect(() => {
+    setUrl(getQueryStringParameterByName('redirect') || '')
+  }, [])
+
   return (
     <div className={styles.container}>
-      <HeadTitle title='Login' />
+      <HeadTitle title='Login (Impulse Sub-Pixel Editor)' />
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Login</h1>
+        <h1 className={styles.title}>Login (Impulse Sub-Pixel Editor)</h1>
         <LoggedInComponent />
+        <br />
+        {url && <Link href={url}>Back to Editor</Link>}
       </main>
 
       {/* <SupabaseAuth /> */}

@@ -17,33 +17,33 @@ export default async function handler(
 ) {
   await runCorsMiddleware(req, res)
 
-  if (ensure.isNotPost(req, res)) {
+  if (ensure.isNotPost(namespace, req, res)) {
     return
   }
 
-  let { user_id } = req.body
+  let { user_id, user_access_token } = req.body
 
-  if (ensure.isMissingArgs(res, [user_id])) {
+  // if (ensure.isMissingArgs(res, [])) {
+  //   return
+  // }
+
+  let auth_user_id = await ensure.getAuthorizedUserId(
+    namespace,
+    req,
+    res,
+    user_id,
+    user_access_token,
+  )
+  if (!auth_user_id) {
     return
   }
 
-  console.log(namespace, 'listing: ', user_id)
+  console.log(namespace, 'listing: ', auth_user_id)
 
   const data = await prismaClient.tilemaps.findMany({
     where: {
-      owner: user_id,
-      OR: [
-        {
-          deleted: {
-            equals: null,
-          },
-        },
-        {
-          deleted: {
-            equals: false,
-          },
-        },
-      ],
+      user_id: auth_user_id,
+      deleted: false,
     },
     select: {
       id: true,
