@@ -12,7 +12,7 @@ function LoggedInComponent() {
       <>
         Signed in as {session?.user?.email} <br />
         <button onClick={() => signOut()}>Sign out</button>
-        <pre>{JSON.stringify(session, null, 2)}</pre>
+        {/* <pre>{JSON.stringify(session, null, 2)}</pre> */}
       </>
     )
   }
@@ -31,9 +31,6 @@ const LoginPage: NextPage = () => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>Login</h1>
-
-        <p className={styles.description}>Coming soon</p>
-
         <LoggedInComponent />
       </main>
 
