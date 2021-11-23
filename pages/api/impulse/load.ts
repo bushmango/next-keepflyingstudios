@@ -23,13 +23,13 @@ export default async function handler(
 ) {
   await runCorsMiddleware(req, res)
 
-  if (ensure.isNotPost(req, res)) {
+  if (ensure.isNotPost(namespace, req, res)) {
     return
   }
 
   let { user_id, dir, id } = req.body
 
-  if (ensure.isMissingArgs(res, [user_id, id])) {
+  if (ensure.isMissingArgs(namespace, res, [user_id, id])) {
     return
   }
 

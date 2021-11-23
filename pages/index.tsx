@@ -1,4 +1,6 @@
 import type { NextPage } from 'next'
+import Link from 'next/link'
+import React from 'react'
 import { Email } from '../components/layout/Email'
 import { Footer } from '../components/layout/Footer'
 import styles from '../styles/Home.module.css'
@@ -14,14 +16,18 @@ const Home: NextPage = () => {
         </p>
 
         <div className={styles.grid}>
-          <a href='/impulse-sub-pixel' className={styles.card}>
-            <h2>Impulse Sub-Pixel &rarr;</h2>
-            <p>Sub-pixel rendering software.</p>
-          </a>
-          <a href='/karaoke-pro' className={styles.card}>
-            <h2>Karaoke Pro &rarr;</h2>
-            <p>Professional Karaoke Software.</p>
-          </a>
+          <Link href='/impulse-sub-pixel' passHref>
+            <div className={styles.card}>
+              <h2>Impulse Sub-Pixel &rarr;</h2>
+              <p>Sub-pixel rendering software.</p>
+            </div>
+          </Link>
+          <Link href='/karaoke-pro' passHref>
+            <div className={styles.card}>
+              <h2>Karaoke Pro &rarr;</h2>
+              <p>Professional Karaoke Software.</p>
+            </div>
+          </Link>
           <a href='https://cowsayify.com' className={styles.card}>
             <h2>Cowsayify &rarr;</h2>
             <p>NextJS demo app.</p>

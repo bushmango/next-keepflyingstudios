@@ -21,17 +21,37 @@ export default async function handler(
 ) {
   await runCorsMiddleware(req, res)
 
-  if (ensure.isNotPost(req, res)) {
+  if (ensure.isNotPost(namespace, req, res)) {
     return
   }
 
-  let { user_id, title, dir, data_string, id, data_version, last_updated } =
-    req.body
-  console.log(namespace, 'saving: ', title, id, user_id)
+  let {
+    user_id,
+    user_access_token,
+    title,
+    dir,
+    data_string,
+    id,
+    data_version,
+    last_updated,
+  } = req.body
 
-  if (ensure.isMissingArgs(res, [user_id, title, data_string])) {
+  if (ensure.isMissingArgs(namespace, res, [title, data_string])) {
     return
   }
+
+  let auth_user_id = await ensure.getAuthorizedUserId(
+    namespace,
+    req,
+    res,
+    user_id,
+    user_access_token,
+  )
+  if (!auth_user_id) {
+    return
+  }
+
+  console.log(namespace, 'saving: ', title, id, auth_user_id)
 
   let updated_at = new Date()
 
@@ -39,15 +59,16 @@ export default async function handler(
     id,
     data_string,
     data_version,
-    owner: user_id,
+    user_id: auth_user_id,
     title: title,
     updated_at,
+    deleted: false,
   }
 
   if (!id) {
     tm.id = uuidv4()
     tm.created_at = new Date()
-    await prismaClient.tilemaps.create({ data: tm })
+    await prismaClient.tilemaps.create({ data: tm as tilemaps })
   } else {
     await prismaClient.tilemaps.update({
       where: {

@@ -9,6 +9,8 @@ require('dotenv').config()
 import { PrismaAdapter } from '@next-auth/prisma-adapter'
 import { prismaClient } from '../../../lib/prisma'
 
+const namespace = 'next-auth'
+
 export default NextAuth({
   secret: process.env.NEXTAUTH_SECRET,
   adapter: PrismaAdapter(prismaClient),
@@ -34,7 +36,7 @@ export default NextAuth({
     async session({ session, token, user }) {
       // Send properties to the client, like an access_token from a provider.
       // session.accessToken = token.accessToken
-      console.log('session', token, user)
+      console.log(namespace, 'session', user?.id)
       session.user_id = user.id
       session.user_access_token = user.custom_access_token
       return session

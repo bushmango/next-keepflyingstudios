@@ -47,7 +47,7 @@ const AppGetTokenPage: InferGetServerSidePropsType<typeof getServerSideProps> =
         }
         window.top.postMessage('tokens:' + tokenData, '*')
       }
-    }, [])
+    }, [props.data])
 
     return (
       <div>
