@@ -7,12 +7,15 @@ import { useSession } from 'next-auth/react'
 
 function LoggedInComponent() {
   const { data: session } = useSession()
+
   if (session) {
+    let user = session?.user?.name || session?.user?.email || 'unknown'
+
     return (
       <>
-        <Link href='/account/login'>Signed in</Link>
-        {/* <Link href='/account/login'>{session?.user?.email}</Link> */}
-        <pre>{JSON.stringify(session, null, 2)}</pre>
+        <Link href='/account/login'>Signed in as {user}</Link>
+        {/* <Link href='/account/login'></Link> */}
+        {/* <pre>{JSON.stringify(session, null, 2)}</pre> */}
       </>
     )
   }
