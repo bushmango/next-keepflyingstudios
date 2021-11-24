@@ -1,11 +1,10 @@
-import styles from '../../styles/Home.module.css'
-import Image from 'next/image'
-import { Email } from './Email'
-import React from 'react'
-import Link from 'next/link'
 import { useSession } from 'next-auth/react'
-import { ErrorBoundary } from '../core/ErrorBoundary'
+import Link from 'next/link'
+import React from 'react'
 import { getUsername } from '../../lib/sessionUtil'
+import styles from '../../styles/Home.module.css'
+import { ErrorBoundary } from '../core/ErrorBoundary'
+import { Email } from './Email'
 
 function LoggedInComponent() {
   const { data: session } = useSession()
