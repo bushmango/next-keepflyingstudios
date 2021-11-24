@@ -42,8 +42,8 @@ import { useEffect } from 'react'
 //   (props: { data?: ITokenData }) => {
 
 const AppGetTokenPage: NextPage = () => {
-  const { status, data: session } = useSession()
-
+  const { status, data } = useSession()
+  let session = data
   useEffect(() => {
     if (window && window.top) {
       let tokenData = ''
