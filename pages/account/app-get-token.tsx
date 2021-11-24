@@ -48,6 +48,7 @@ const AppGetTokenPage: NextPage = () => {
     if (window && window.top) {
       let tokenData = ''
       if (status === 'authenticated') {
+        tokenData = 'loading-session'
         if (session) {
           tokenData = JSON.stringify({
             user_id: session.user_id,
