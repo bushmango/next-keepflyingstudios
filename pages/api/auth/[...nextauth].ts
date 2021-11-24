@@ -10,6 +10,7 @@ import { PrismaAdapter } from '@next-auth/prisma-adapter'
 import { prismaClient } from '../../../lib/prisma'
 
 const namespace = 'next-auth'
+const allowNonSameSiteCookies = true
 
 export default NextAuth({
   secret: process.env.NEXTAUTH_SECRET,
@@ -40,6 +41,52 @@ export default NextAuth({
       session.user_id = user.id
       session.user_access_token = user.custom_access_token
       return session
+    },
+  },
+  cookies: {
+    sessionToken: {
+      name: `__Secure-next-auth.session-token`,
+      options: {
+        httpOnly: true,
+        sameSite: 'none',
+        path: '/',
+        secure: true,
+      },
+    },
+    callbackUrl: {
+      name: `__Secure-next-auth.callback-url`,
+      options: {
+        sameSite: 'none',
+        path: '/',
+        secure: true,
+      },
+    },
+    csrfToken: {
+      name: `__Host-next-auth.csrf-token`,
+      options: {
+        httpOnly: true,
+        sameSite: 'none',
+        path: '/',
+        secure: true,
+      },
+    },
+    pkceCodeVerifier: {
+      name: `_cookiePrefix_next-auth.pkce.code_verifier`,
+      options: {
+        httpOnly: true,
+        sameSite: 'none',
+        path: '/',
+        secure: true,
+      },
+    },
+    state: {
+      name: `_cookiePrefix_next-auth.state`,
+      options: {
+        httpOnly: true,
+        sameSite: 'none',
+        path: '/',
+        secure: true,
+      },
     },
   },
 })
