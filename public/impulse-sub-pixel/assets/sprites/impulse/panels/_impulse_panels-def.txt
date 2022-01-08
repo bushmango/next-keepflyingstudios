@@ -1,0 +1,8 @@
+
+idx:2
+pixel-scale:off
+// extrude:on
+prefix:impulse-panel-
+dir-to-imgs-pngs:
+
+

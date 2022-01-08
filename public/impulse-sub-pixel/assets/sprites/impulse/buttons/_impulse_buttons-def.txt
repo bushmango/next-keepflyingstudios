@@ -1,0 +1,9 @@
+
+// idx:2
+idx:5
+pixel-scale:off
+prefix:impulse-buttons-
+
+dir-to-imgs-pngs:
+
+

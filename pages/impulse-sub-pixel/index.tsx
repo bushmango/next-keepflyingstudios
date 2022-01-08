@@ -11,11 +11,11 @@ const ImpulseSubPixelPage: NextPage = () => {
       <HeadTitle title='Impulse Sub-Pixel Editing Software' />
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Impulse Sub-Pixel</h1>
+        <h1 className={styles.title}>Subpixelator Sub-Pixel Editor</h1>
 
         <p className={styles.description}></p>
 
-        <p>
+        <p style={{ fontSize: '40px' }}>
           <a href='/impulse-sub-pixel/sub-pixel-app.html'>Try it</a>
         </p>
 

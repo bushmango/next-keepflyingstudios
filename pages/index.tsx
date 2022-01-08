@@ -18,20 +18,20 @@ const Home: NextPage = () => {
         <div className={styles.grid}>
           <Link href='/impulse-sub-pixel' passHref>
             <div className={styles.card}>
-              <h2>Impulse Sub-Pixel &rarr;</h2>
+              <h2>Subpixelator Sub-Pixel Editor&rarr;</h2>
               <p>Sub-pixel rendering software.</p>
             </div>
           </Link>
-          <Link href='/karaoke-pro' passHref>
+          {/* <Link href='/karaoke-pro' passHref>
             <div className={styles.card}>
               <h2>Karaoke Pro &rarr;</h2>
               <p>Professional Karaoke Software.</p>
             </div>
-          </Link>
-          <a href='https://cowsayify.com' className={styles.card}>
+          </Link> */}
+          {/* <a href='https://cowsayify.com' className={styles.card}>
             <h2>Cowsayify &rarr;</h2>
             <p>NextJS demo app.</p>
-          </a>
+          </a> */}
 
           <div className={styles.card}>
             <h2>Contact Us</h2>

@@ -1,0 +1,8 @@
+
+idx:2
+pixel-scale:off
+prefix:impulse-icons-
+
+dir-to-imgs-pngs:
+
+
