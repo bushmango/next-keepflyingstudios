@@ -13,6 +13,7 @@ const ImpulseSubPixelPage: NextPage = () => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>Subpixelator Sub-Pixel Editor</h1>
+        <h3>Brenden Preview Alpha Release</h3>
 
         <p className={styles.description}></p>
 
