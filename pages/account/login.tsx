@@ -7,7 +7,7 @@ import { HeadTitle } from '../../components/layout/HeadTitle'
 import { getUsername } from '../../lib/sessionUtil'
 import styles from '../../styles/Home.module.css'
 
-function LoggedInComponent() {
+export function LoggedInComponent() {
   const { data: session } = useSession()
   if (session) {
     let username = getUsername(session)

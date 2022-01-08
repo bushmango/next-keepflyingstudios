@@ -4,6 +4,7 @@ import React from 'react'
 import { Footer } from '../../components/layout/Footer'
 import { HeadTitle } from '../../components/layout/HeadTitle'
 import styles from '../../styles/Home.module.css'
+import { LoggedInComponent } from '../account/login'
 
 const ImpulseSubPixelPage: NextPage = () => {
   return (
@@ -16,7 +17,12 @@ const ImpulseSubPixelPage: NextPage = () => {
         <p className={styles.description}></p>
 
         <p style={{ fontSize: '40px' }}>
-          <a href='/impulse-sub-pixel/sub-pixel-app.html'>Try it</a>
+          First, sign in <br />
+          <LoggedInComponent />
+        </p>
+
+        <p style={{ fontSize: '40px' }}>
+          <a href='/impulse-sub-pixel/sub-pixel-app.html'>Then, try it</a>
         </p>
 
         <p>
