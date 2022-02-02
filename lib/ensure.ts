@@ -1,5 +1,7 @@
+import { IncomingMessage, ServerResponse } from 'http'
 import { NextApiRequest, NextApiResponse } from 'next'
 import { getSession } from 'next-auth/react'
+import { NextRequest } from 'next/server'
 import { prismaClient } from './prisma'
 
 type ErrorableResponse = {
@@ -67,4 +69,41 @@ export async function getAuthorizedUserId(
   console.warn(namespace, 'unauthorized', '' + user_id, '' + user_access_token)
 
   return null
+}
+
+export async function getAuthorizedUserIdPage(
+  namespace: string,
+  req: IncomingMessage,
+  res: ServerResponse,
+  user_id: string | null,
+  user_access_token: string | null,
+): Promise<string> {
+  const session = await getSession({ req })
+
+  // Use override if we have it (dev and impersonation support)
+  if (user_id && user_access_token) {
+    let record = await prismaClient.user.findFirst({
+      where: {
+        id: user_id,
+        custom_access_token: user_access_token,
+      },
+      select: {
+        id: true,
+      },
+    })
+    if (record) {
+      return record.id
+    }
+  }
+
+  // Else use current logged-in session
+  if (session && session.user_id) {
+    return session.user_id as string
+  }
+
+  return 'unauthorized'
+  // res.status(400).json({ err: 'unauthorized' })
+  // console.warn(namespace, 'unauthorized', '' + user_id, '' + user_access_token)
+
+  // return null
 }
