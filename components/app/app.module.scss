@@ -1,0 +1,17 @@
+.listItems {
+  display: flex;
+  flex-wrap: wrap;
+}
+.listLeft {
+  min-width: 50%;
+  flex: 1;
+}
+.listRight {
+  min-width: 50%;
+  flex: 1;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
