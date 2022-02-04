@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { tilemaps } from '.prisma/client'
+import { DateTime } from 'luxon'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import Link from 'next/link'
 import { ParsedUrlQuery } from 'querystring'
@@ -57,7 +58,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     select: {
       id: true,
       title: true,
+      updated_at: true,
     },
+    orderBy: [
+      {
+        updated_at: 'desc',
+      },
+    ],
     // where: { published: true },
     // include: {
     //   author: {
@@ -65,59 +72,70 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     //   },
     // },
   })
+  let dataMapped = data.map((c) => {
+    return {
+      id: c.id,
+      title: c.title,
+      updated_at: c.updated_at?.toISOString(),
+    }
+  })
 
-  console.log('data is', data, params?.uid)
-  return { props: { data, err: '' } }
-
-  // const data = await prismaClient.tilemaps.findUnique({
-  //   where: {
-  //     id: '' + params?.pid,
-  //   },
-  //   select: {
-  //     id: true,
-  //     title: true,
-  //   },
-  // })
-  // return {
-  //   props: { data },
-  // }
+  // console.log('data is', dataMapped, params?.uid)
+  return { props: { data: dataMapped, err: '' } }
 }
 
 // TODO: move to s3 bucket subpixelator-subpix-previews
 export const ListPage: InferGetServerSidePropsType<
   typeof getServerSideProps
-> = (props: { data: tilemaps[]; err: string }) => {
+> = (props: {
+  data: { id: string; title: string; updated_at: string }[]
+  err: string
+}) => {
   return (
     <div className={stylesHome.container}>
       <HeadTitle title='List Subpixelator Subpix - Subpixelator Sub-Pixel Editing Software' />
 
       <main className={stylesHome.main}>
-        <h1 className={stylesHome.title}>List Subpix</h1>
+        <h1 className={stylesHome.title}>Open a Subpix Image</h1>
         <div>
-          <div>List of subpix</div>
+          {/* <div>List of subpix</div> */}
           <div>{props.err && <div>{props.err}</div>}</div>
           <div>
             {!props.err && (
               <div>
                 <div className={styles.listItems}>
-                  {props.data.map((c) => (
-                    <React.Fragment key={c.id}>
-                      <div className={styles.listLeft}>
-                        left link
-                        <Link href={`/impulse-sub-pixel/tilemaps/${c.id}`}>
-                          {c.title}
-                        </Link>
-                      </div>
-                      <div className={styles.listRight}>
-                        image
-                        <img
-                          alt={`${c.title} preview`}
-                          src={`https://impulse-tilemap-previews.s3.amazonaws.com/public/${c.id}.png`}
-                        />
-                      </div>
-                      {/* <a href={`/impulse-sub-pixel/tilemaps/${c.id}`}>{c.title}</a> */}
-                    </React.Fragment>
-                  ))}
+                  {props.data.map((c) => {
+                    let date = DateTime.fromISO(c.updated_at)
+                    const onClick = () => {
+                      alert('open ' + c.id)
+                    }
+                    return (
+                      <React.Fragment key={c.id}>
+                        <div className={styles.listLeft} onClick={onClick}>
+                          <div className={styles.listText}>
+                            <div>
+                              {/* <Link href={`/impulse-sub-pixel/tilemaps/${c.id}`}> */}
+                              <strong>{c.title}</strong>
+                              <br />
+                              {date.toLocaleString(DateTime.DATE_SHORT)}
+                              <br />
+                              {date.toLocaleString(DateTime.TIME_SIMPLE)}
+                              {/* </Link> */}
+                            </div>
+                          </div>
+                        </div>
+                        <div className={styles.listRight} onClick={onClick}>
+                          <div className={styles.listImg}>
+                            <img
+                              alt={`${c.title} preview`}
+                              src={`https://impulse-tilemap-previews.s3.amazonaws.com/public/${c.id}.png`}
+                            />
+                          </div>
+                        </div>
+                        {/* <a href={`/impulse-sub-pixel/tilemaps/${c.id}`}>{c.title}</a> */}
+                      </React.Fragment>
+                    )
+                  })}
                 </div>
               </div>
             )}
