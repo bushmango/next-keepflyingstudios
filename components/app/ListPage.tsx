@@ -1,14 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
-import { tilemaps } from '.prisma/client'
+import { useAtom } from 'jotai'
+import { atomWithStorage } from 'jotai/utils'
 import { DateTime } from 'luxon'
-import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
-import Link from 'next/link'
+import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from 'next'
 import { ParsedUrlQuery } from 'querystring'
 import React from 'react'
 import * as ensure from '../../lib/ensure'
 import { prismaClient } from '../../lib/prisma'
-import stylesHome from '../../styles/Home.module.css'
-import { Footer } from '../layout/Footer'
 import { HeadTitle } from '../layout/HeadTitle'
 import styles from './app.module.scss'
 
@@ -85,65 +83,84 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 }
 
 // TODO: move to s3 bucket subpixelator-subpix-previews
+const searchTextAtom = atomWithStorage('listSearchTextAtom', '')
+interface IData {
+  id: string
+  title: string
+  updated_at: string
+}
 export const ListPage: InferGetServerSidePropsType<
   typeof getServerSideProps
-> = (props: {
-  data: { id: string; title: string; updated_at: string }[]
-  err: string
-}) => {
+> = (props: { data: IData[]; err: string }) => {
+  let [searchText, setSearchText] = useAtom(searchTextAtom)
+
+  let items: IData[] = []
+  if (!props.err && props.data) {
+    items = props.data
+    searchText = searchText.trim()
+    if (searchText) {
+      items = items.filter((c) => c.title.includes(searchText))
+    }
+  }
+
   return (
-    <div className={stylesHome.container}>
+    <div>
       <HeadTitle title='List Subpixelator Subpix - Subpixelator Sub-Pixel Editing Software' />
 
-      <main className={stylesHome.main}>
-        <h1 className={stylesHome.title}>Open a Subpix Image</h1>
-        <div>
-          {/* <div>List of subpix</div> */}
-          <div>{props.err && <div>{props.err}</div>}</div>
+      <main className={styles.main}>
+        <h1>Open a Subpix Image</h1>
+        <div>{props.err && <div>{props.err}</div>}</div>
+        {!props.err && (
           <div>
-            {!props.err && (
-              <div>
-                <div className={styles.listItems}>
-                  {props.data.map((c) => {
-                    let date = DateTime.fromISO(c.updated_at)
-                    const onClick = () => {
-                      alert('open ' + c.id)
-                    }
-                    return (
-                      <React.Fragment key={c.id}>
-                        <div className={styles.listLeft} onClick={onClick}>
-                          <div className={styles.listText}>
-                            <div>
-                              {/* <Link href={`/impulse-sub-pixel/tilemaps/${c.id}`}> */}
-                              <strong>{c.title}</strong>
-                              <br />
-                              {date.toLocaleString(DateTime.DATE_SHORT)}
-                              <br />
-                              {date.toLocaleString(DateTime.TIME_SIMPLE)}
-                              {/* </Link> */}
-                            </div>
-                          </div>
+            <div>
+              Search{' '}
+              <input
+                type='text'
+                value={searchText}
+                onChange={(ev) => setSearchText(ev.target.value)}
+              />
+            </div>
+            <div className={styles.listItems}>
+              {items.map((c) => {
+                let date = DateTime.fromISO(c.updated_at)
+                const onClick = () => {
+                  alert('open ' + c.id)
+                }
+                return (
+                  <React.Fragment key={c.id}>
+                    <div className={styles.listLeft} onClick={onClick}>
+                      <div className={styles.listText}>
+                        <div>
+                          {/* <Link href={`/impulse-sub-pixel/tilemaps/${c.id}`}> */}
+                          <strong>{c.title}</strong>
+                          <br />
+                          {date.toLocaleString(DateTime.DATE_SHORT)}
+                          <br />
+                          {date.toLocaleString(DateTime.TIME_SIMPLE)}
+                          {/* </Link> */}
                         </div>
-                        <div className={styles.listRight} onClick={onClick}>
-                          <div className={styles.listImg}>
-                            <img
-                              alt={`${c.title} preview`}
-                              src={`https://impulse-tilemap-previews.s3.amazonaws.com/public/${c.id}.png`}
-                            />
-                          </div>
-                        </div>
-                        {/* <a href={`/impulse-sub-pixel/tilemaps/${c.id}`}>{c.title}</a> */}
-                      </React.Fragment>
-                    )
-                  })}
-                </div>
-              </div>
-            )}
+                      </div>
+                    </div>
+                    <div className={styles.listRight} onClick={onClick}>
+                      <div className={styles.listImg}>
+                        <img
+                          alt={`${c.title} preview`}
+                          src={`https://impulse-tilemap-previews.s3.amazonaws.com/public/${c.id}.png`}
+                        />
+                      </div>
+                    </div>
+                    {/* <a href={`/impulse-sub-pixel/tilemaps/${c.id}`}>{c.title}</a> */}
+                  </React.Fragment>
+                )
+              })}
+            </div>
           </div>
-        </div>
+        )}
       </main>
-
-      <Footer />
     </div>
   )
+}
+
+ListPage.getLayout = (page: NextPage) => {
+  return <div>{page}</div>
 }
