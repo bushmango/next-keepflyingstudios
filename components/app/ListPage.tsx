@@ -103,6 +103,12 @@ export const ListPage: InferGetServerSidePropsType<
     }
   }
 
+  const doOpen = (id: string) => {
+    if (window && window.top) {
+      window.top.postMessage('open:' + id, '*')
+    }
+  }
+
   return (
     <div>
       <HeadTitle title='List Subpixelator Subpix - Subpixelator Sub-Pixel Editing Software' />
@@ -124,7 +130,8 @@ export const ListPage: InferGetServerSidePropsType<
               {items.map((c) => {
                 let date = DateTime.fromISO(c.updated_at)
                 const onClick = () => {
-                  alert('open ' + c.id)
+                  doOpen(c.id)
+                  //alert('open ' + c.id)
                 }
                 return (
                   <React.Fragment key={c.id}>
