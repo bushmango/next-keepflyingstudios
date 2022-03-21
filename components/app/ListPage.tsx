@@ -3,32 +3,14 @@ import { useAtom } from 'jotai'
 import { atomWithStorage } from 'jotai/utils'
 import { DateTime } from 'luxon'
 import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from 'next'
-import { ParsedUrlQuery } from 'querystring'
 import React from 'react'
 import * as ensure from '../../lib/ensure'
 import { prismaClient } from '../../lib/prisma'
 import { HeadTitle } from '../layout/HeadTitle'
 import styles from './app.module.scss'
+import { getParam } from './getParam'
 
 const namespace = 'impulse:app:open'
-
-const getParam = (
-  params: ParsedUrlQuery | undefined,
-  key: string,
-  _default: string | null = null,
-) => {
-  if (!params) {
-    return _default
-  }
-  let p = params[key]
-  if (p == null) {
-    return _default
-  }
-  if (Array.isArray(p)) {
-    return p[0]
-  }
-  return p
-}
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   let { params, query, req, res } = context
