@@ -1,7 +1,6 @@
 import { IncomingMessage, ServerResponse } from 'http'
 import { NextApiRequest, NextApiResponse } from 'next'
 import { getSession } from 'next-auth/react'
-import { NextRequest } from 'next/server'
 import { prismaClient } from './prisma'
 
 type ErrorableResponse = {
