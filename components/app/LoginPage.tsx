@@ -43,6 +43,10 @@ function LoginComponent() {
         {/* <pre>{JSON.stringify(session, null, 2)}</pre> */}
       </>
     )
+  } else {
+    if (window && window.top) {
+      window.top.postMessage('log-out:', '*')
+    }
   }
 
   return (
