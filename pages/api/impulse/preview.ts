@@ -19,13 +19,16 @@ export default async function handler(
   try {
     await runCorsMiddleware(req, res)
 
-    // TODO: some sort of access key
     // if (req.method !== "POST") {
     //   res.status(400).json({ err: "not-post" });
     //   return;
     // }
 
-    let { id } = req.body
+    let { id, user_id, user_access_token } = req.body
+
+    // TODO: validate
+    // TODO: some sort of access key
+
     if (!id) {
       id = 'test-id'
     }
@@ -37,8 +40,7 @@ export default async function handler(
       ContentType: 'image/png',
     })
     var url = await getSignedUrl(s3client, command, { expiresIn: 5 * 60 })
-    console.log(namespace, 'The URL is', url) // expires in 60 seconds
-
+    // console.log(namespace, 'The URL is', url) // expires in 60 seconds
     // let res2 = await fetch(url, {
     //   method: "PUT",
     //   headers: {
