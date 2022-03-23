@@ -37,7 +37,7 @@ export default async function handler(
       ContentType: 'image/png',
     })
     var url = await getSignedUrl(s3client, command, { expiresIn: 5 * 60 })
-    console.log('The URL is', url) // expires in 60 seconds
+    console.log(namespace, 'The URL is', url) // expires in 60 seconds
 
     // let res2 = await fetch(url, {
     //   method: "PUT",
@@ -54,8 +54,9 @@ export default async function handler(
       url,
     })
   } catch (err) {
+    console.error(namespace, 'error uploading preview', err)
     res.status(500).json({
-      err: 'crash',
+      err: JSON.stringify(err),
     })
   }
 }
