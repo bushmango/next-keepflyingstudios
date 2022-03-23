@@ -12,41 +12,40 @@ const namespace = 'impulse:app:login'
 function LoginComponent() {
   const { data: session } = useSession()
   const [updateCount, setUpdateCount] = useState(1)
+
   useEffect(() => {
     // Auto-refresh
     if (!session) {
       setTimeout(() => setUpdateCount(updateCount + 1), 1000)
+      if (window && window.top) {
+        window.top.postMessage('log-out:', '*')
+      }
+    }
+    if (session) {
+      if (window && window.top) {
+        window.top.postMessage(
+          'logged-in:' +
+            session?.user?.email +
+            ':' +
+            session?.user?.name +
+            ':' +
+            session?.user_id +
+            ':' +
+            session?.user_access_token,
+          '*',
+        )
+      }
     }
   })
 
   if (session) {
-    let username = getUsername(session)
-
-    if (window && window.top) {
-      window.top.postMessage(
-        'logged-in:' +
-          session?.user?.email +
-          ':' +
-          session?.user?.name +
-          ':' +
-          session?.user_id +
-          ':' +
-          session?.user_access_token,
-        '*',
-      )
-    }
-
     return (
       <>
-        Signed in as {username} <br />
+        Signed in as {getUsername(session)} <br />
         <button onClick={() => signOut()}>Sign out</button>
         {/* <pre>{JSON.stringify(session, null, 2)}</pre> */}
       </>
     )
-  } else {
-    if (window && window.top) {
-      window.top.postMessage('log-out:', '*')
-    }
   }
 
   return (
