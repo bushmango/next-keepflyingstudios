@@ -49,3 +49,9 @@ animss:center-circle-q:4,5
 animss:center-diamond:4,2
 animss:center-diamond-h:3,2
 animss:center-diamond-q:3,1
+
+animss:x:6,6
+animss:x-h:6,7
+animss:heart:5,5
+animss:eye-circle:5,3
+animss:eye-circle-small:5,4
