@@ -2,9 +2,9 @@ import { useSession } from 'next-auth/react'
 import Link from 'next/link'
 import React from 'react'
 import { getUsername } from '../../lib/sessionUtil'
-import styles from './layout.module.scss'
 import { ErrorBoundary } from '../core/ErrorBoundary'
 import { Email } from './Email'
+import styles from './layout.module.scss'
 
 function LoggedInComponent() {
   const { data: session } = useSession()
@@ -21,8 +21,6 @@ function LoggedInComponent() {
 }
 
 export const Footer = () => {
-  const { data: session } = useSession()
-
   return (
     <footer className={styles.footer}>
       <ErrorBoundary name='footer'>
@@ -42,6 +40,8 @@ export const Footer = () => {
           </span>
         </a> */}
         <Email />
+        <Link href={'/privacy-policy'}>Privacy Policy</Link>
+        <Link href={'/terms-of-service'}>Terms of Service</Link>
       </ErrorBoundary>
     </footer>
   )
