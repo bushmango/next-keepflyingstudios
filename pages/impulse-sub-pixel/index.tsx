@@ -1,7 +1,6 @@
 import type { NextPage } from 'next'
 import Link from 'next/link'
 import React from 'react'
-import { Footer } from '../../components/layout/Footer'
 import { HeadTitle } from '../../components/layout/HeadTitle'
 import styles from '../../styles/Home.module.scss'
 import { LoggedInComponent } from '../account/login'
