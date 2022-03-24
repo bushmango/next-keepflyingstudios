@@ -2,7 +2,6 @@ import type { NextPage } from 'next'
 import Link from 'next/link'
 import React from 'react'
 import { Email } from '../components/layout/Email'
-import { Footer } from '../components/layout/Footer'
 import styles from '../styles/Home.module.scss'
 
 const Home: NextPage = () => {

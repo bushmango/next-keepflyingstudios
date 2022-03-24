@@ -1,7 +1,8 @@
 import NextAuth from 'next-auth'
 import GithubProvider from 'next-auth/providers/github'
-
+import GoogleProvider from 'next-auth/providers/google'
 import EmailProvider from 'next-auth/providers/email'
+import FacebookProvider from 'next-auth/providers/facebook'
 
 // import GoogleProvider from 'next-auth/providers/google'
 require('dotenv').config()
@@ -17,14 +18,30 @@ export default NextAuth({
   adapter: PrismaAdapter(prismaClient),
   // Configure one or more authentication providers
   providers: [
-    EmailProvider({
-      server: process.env.AUTH_EMAIL_SERVER,
-      from: process.env.AUTH_EMAIL_FROM,
-      // maxAge: 24 * 60 * 60, // How long email links are valid for (default 24h)
+    // https://next-auth.js.org/providers/google
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID || '',
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
+      authorization: {
+        params: {
+          prompt: 'consent',
+          access_type: 'offline',
+          response_type: 'code',
+        },
+      },
+    }),
+    FacebookProvider({
+      clientId: process.env.FACEBOOK_CLIENT_ID || '',
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET || '',
     }),
     GithubProvider({
-      clientId: process.env.GITHUB_CLIENT_ID,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET,
+      clientId: process.env.GITHUB_CLIENT_ID || '',
+      clientSecret: process.env.GITHUB_CLIENT_SECRET || '',
+    }),
+    EmailProvider({
+      server: process.env.AUTH_EMAIL_SERVER || '',
+      from: process.env.AUTH_EMAIL_FROM || '',
+      // maxAge: 24 * 60 * 60, // How long email links are valid for (default 24h)
     }),
 
     // GoogleProvider({
