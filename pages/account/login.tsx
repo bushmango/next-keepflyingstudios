@@ -5,7 +5,7 @@ import { ErrorBoundary } from '../../components/core/ErrorBoundary'
 import { Footer } from '../../components/layout/Footer'
 import { HeadTitle } from '../../components/layout/HeadTitle'
 import { getUsername } from '../../lib/sessionUtil'
-import styles from '../../styles/Home.module.css'
+import styles from '../../styles/Home.module.scss'
 
 export function LoggedInComponent() {
   const { data: session } = useSession()
@@ -33,16 +33,12 @@ const LoginPage: NextPage = () => {
     <div className={styles.container}>
       <HeadTitle title='Login' />
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>Login</h1>
-        <ErrorBoundary>
-          <LoggedInComponent />
-        </ErrorBoundary>
-      </main>
+      <h1 className={styles.title}>Login</h1>
+      <ErrorBoundary>
+        <LoggedInComponent />
+      </ErrorBoundary>
 
       {/* <SupabaseAuth /> */}
-
-      <Footer />
     </div>
   )
 }

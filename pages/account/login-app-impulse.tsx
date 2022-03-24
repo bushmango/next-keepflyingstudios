@@ -7,7 +7,7 @@ import { Footer } from '../../components/layout/Footer'
 import { HeadTitle } from '../../components/layout/HeadTitle'
 import { getQueryStringParameterByName } from '../../lib/getQueryString'
 import { getUsername } from '../../lib/sessionUtil'
-import styles from '../../styles/Home.module.css'
+import styles from '../../styles/Home.module.scss'
 
 function LoggedInComponent() {
   const { data: session } = useSession()
@@ -40,18 +40,14 @@ const LoginPage: NextPage = () => {
     <div className={styles.container}>
       <HeadTitle title='Login (Impulse Sub-Pixel Editor)' />
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>Login (Impulse Sub-Pixel Editor)</h1>
-        <ErrorBoundary>
-          <LoggedInComponent />
-        </ErrorBoundary>
-        <br />
-        {url && <Link href={url}>Back to Editor</Link>}
-      </main>
+      <h1 className={styles.title}>Login (Impulse Sub-Pixel Editor)</h1>
+      <ErrorBoundary>
+        <LoggedInComponent />
+      </ErrorBoundary>
+      <br />
+      {url && <Link href={url}>Back to Editor</Link>}
 
       {/* <SupabaseAuth /> */}
-
-      <Footer />
     </div>
   )
 }

@@ -65,18 +65,16 @@ export const LoginPage: InferGetServerSidePropsType<
 > = (props: { data: {}; err: string }) => {
   return (
     <div>
-      <HeadTitle title='Login Subpixelator Subpix - Subpixelator Sub-Pixel Editing Software' />
+      <HeadTitle title='Login Subpixelator.io Subpix - Subpixelator.io Sub-Pixel Editing Software' />
 
-      <main className={styles.main}>
-        <h1>Login</h1>
-        <div>
-          <ErrorBoundary>
-            <LoginComponent />
-          </ErrorBoundary>
-        </div>
-        <div>{props.err && <div>{props.err}</div>}</div>
-        {/* {!props.err && <div>Login info goes here</div>} */}
-      </main>
+      <h1>Login</h1>
+      <div>
+        <ErrorBoundary>
+          <LoginComponent />
+        </ErrorBoundary>
+      </div>
+      <div>{props.err && <div>{props.err}</div>}</div>
+      {/* {!props.err && <div>Login info goes here</div>} */}
     </div>
   )
 }

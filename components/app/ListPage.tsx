@@ -93,59 +93,57 @@ export const ListPage: InferGetServerSidePropsType<
 
   return (
     <div>
-      <HeadTitle title='List Subpixelator Subpix - Subpixelator Sub-Pixel Editing Software' />
+      <HeadTitle title='List Subpixelator.io Subpix - Subpixelator.io Sub-Pixel Editing Software' />
 
-      <main className={styles.main}>
-        <h1>Open a Subpix Image</h1>
-        <div>{props.err && <div>{props.err}</div>}</div>
-        {!props.err && (
+      <h1>Open a Subpix Image</h1>
+      <div>{props.err && <div>{props.err}</div>}</div>
+      {!props.err && (
+        <div>
           <div>
-            <div>
-              Search{' '}
-              <input
-                type='text'
-                value={searchText}
-                onChange={(ev) => setSearchText(ev.target.value)}
-              />
-            </div>
-            <div className={styles.listItems}>
-              {items.map((c) => {
-                let date = DateTime.fromISO(c.updated_at)
-                const onClick = () => {
-                  doOpen(c.id)
-                  //alert('open ' + c.id)
-                }
-                return (
-                  <React.Fragment key={c.id}>
-                    <div className={styles.listLeft} onClick={onClick}>
-                      <div className={styles.listText}>
-                        <div>
-                          {/* <Link href={`/impulse-sub-pixel/tilemaps/${c.id}`}> */}
-                          <strong>{c.title}</strong>
-                          <br />
-                          {date.toLocaleString(DateTime.DATE_SHORT)}
-                          <br />
-                          {date.toLocaleString(DateTime.TIME_SIMPLE)}
-                          {/* </Link> */}
-                        </div>
-                      </div>
-                    </div>
-                    <div className={styles.listRight} onClick={onClick}>
-                      <div className={styles.listImg}>
-                        <img
-                          alt={`${c.title} preview`}
-                          src={`https://impulse-tilemap-previews.s3.amazonaws.com/public/${c.id}.png`}
-                        />
-                      </div>
-                    </div>
-                    {/* <a href={`/impulse-sub-pixel/tilemaps/${c.id}`}>{c.title}</a> */}
-                  </React.Fragment>
-                )
-              })}
-            </div>
+            Search{' '}
+            <input
+              type='text'
+              value={searchText}
+              onChange={(ev) => setSearchText(ev.target.value)}
+            />
           </div>
-        )}
-      </main>
+          <div className={styles.listItems}>
+            {items.map((c) => {
+              let date = DateTime.fromISO(c.updated_at)
+              const onClick = () => {
+                doOpen(c.id)
+                //alert('open ' + c.id)
+              }
+              return (
+                <React.Fragment key={c.id}>
+                  <div className={styles.listLeft} onClick={onClick}>
+                    <div className={styles.listText}>
+                      <div>
+                        {/* <Link href={`/impulse-sub-pixel/tilemaps/${c.id}`}> */}
+                        <strong>{c.title}</strong>
+                        <br />
+                        {date.toLocaleString(DateTime.DATE_SHORT)}
+                        <br />
+                        {date.toLocaleString(DateTime.TIME_SIMPLE)}
+                        {/* </Link> */}
+                      </div>
+                    </div>
+                  </div>
+                  <div className={styles.listRight} onClick={onClick}>
+                    <div className={styles.listImg}>
+                      <img
+                        alt={`${c.title} preview`}
+                        src={`https://impulse-tilemap-previews.s3.amazonaws.com/public/${c.id}.png`}
+                      />
+                    </div>
+                  </div>
+                  {/* <a href={`/impulse-sub-pixel/tilemaps/${c.id}`}>{c.title}</a> */}
+                </React.Fragment>
+              )
+            })}
+          </div>
+        </div>
+      )}
     </div>
   )
 }

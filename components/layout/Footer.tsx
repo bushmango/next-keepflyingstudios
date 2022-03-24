@@ -2,7 +2,7 @@ import { useSession } from 'next-auth/react'
 import Link from 'next/link'
 import React from 'react'
 import { getUsername } from '../../lib/sessionUtil'
-import styles from '../../styles/Home.module.css'
+import styles from './layout.module.scss'
 import { ErrorBoundary } from '../core/ErrorBoundary'
 import { Email } from './Email'
 
